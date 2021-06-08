@@ -2,10 +2,14 @@
 select payment_id, payment_date, row_number() over (order by payment_date)
 from payment
 
--- Задание №2
+/* Задание №2
 select payment_id, payment_date, customer_id, row_number() over (partition by customer_id)
 from payment
 ORDER by customer_id,payment_date
+*/
+-- Задание №2
+select payment_id, payment_date, customer_id, row_number() over (partition by customer_id order by payment_date)
+from payment
 
 -- Задание №3
 select customer_id,payment_id, payment_date, amount,
